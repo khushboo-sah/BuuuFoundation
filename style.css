@@ -17,7 +17,18 @@ header {
   height: 10vh;
   margin: auto;
   align-items: center;
-  color: red;
+  color: #e2ce1d;
+}
+.logo-container p {
+  display: flex;
+
+  font-size: 0.7em;
+  color: aliceblue;
+  margin-top: 80px;
+}
+.name {
+  display: flex;
+  flex-direction: column;
 }
 
 .logo-container,
@@ -27,6 +38,13 @@ header {
 
 .logo-container {
   flex: 1;
+  display: flex;
+  margin-top: 5px;
+}
+.logo-container {
+  display: flex;
+  width: 90%;
+  margin: auto;
 }
 .logo {
   font-weight: 900;
@@ -41,13 +59,13 @@ nav {
   list-style: none;
 }
 .nav-link {
-  color: #5f5f79;
+  color: #fdfdfd;
   font-size: 18px;
   text-decoration: none;
 }
 .nav-link:hover {
   opacity: 1;
-  color: red;
+  color: #e2ce1d;
   transform: scale(1.03);
 }
 
@@ -65,22 +83,22 @@ nav {
 .intro-text h1 {
   font-size: 44px;
   font-weight: 500;
-  background: linear-gradient(to right, #050505, #000000);
+  background: linear-gradient(to right, #f5e8e8, #f5f2f2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .intro-text p {
   margin-top: 5px;
   font-size: 22px;
-  color: #585772;
+  color: #cecddf;
 }
 .cta {
   padding: 50px 0px 0px 0px;
 }
 .cta-select {
-  border: 2px solid #e21d27;
+  border: 2px solid #e2ce1d;
   background: transparent;
-  color: #e21d27;
+  color: #e2ce1d;
   width: 150px;
   height: 50px;
   cursor: pointer;
@@ -96,13 +114,13 @@ nav {
   transform: scale(1.03);
 }
 .cta-add {
-  background: #e21d27;
+  background: #e2ce1d;
   width: 150px;
   height: 50px;
   cursor: pointer;
   font-size: 16px;
   border: none;
-  color: white;
+  color: rgb(0, 0, 0);
   margin: 30px 0px 0px 30px;
 }
 
@@ -125,6 +143,7 @@ nav {
   height: 100%;
   filter: drop-shadow(0px 5px 3px black);
   animation: drop 0.1s ease;
+  border-radius: 5px 20px 5px;
 }
 
 .big-circle {
@@ -254,6 +273,7 @@ nav {
 
 .salon-photo {
   width: 100%;
+  height: 400px;
   margin: 0;
   overflow: hidden;
   background-color: #000;
@@ -262,7 +282,7 @@ nav {
 .salon-photo img {
   opacity: 0.7;
   width: 100%;
-  height: auto;
+  height: 300px;
   -webkit-transform: scale(1.15);
   -ms-transform: scale(1.15);
   transform: scale(1.15);
@@ -283,12 +303,12 @@ nav {
 /* RESET RULES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 :root {
-  --white: #afafaf;
-  --red: #e31b23;
-  --bodyColor: #cddbe9;
+  --white: #ffffff;
+  --red: #fffb00ee;
+  --bodyColor: #050505;
   --borderFormEls: hsl(0, 0%, 10%);
   --bgFormEls: hsl(0, 0%, 14%);
-  --bgFormElsFocus: hsl(0, 7%, 20%);
+  --bgFormElsFocus: hsl(0, 0%, 100%);
 }
 
 * {
@@ -299,7 +319,7 @@ nav {
 }
 
 a {
-  color: inherit;
+  colors: inherit;
 }
 
 input,
@@ -329,7 +349,7 @@ select::-ms-expand {
 /*We use !important to override the color set for the select on line 99*/
 select:-moz-focusring {
   color: transparent !important;
-  text-shadow: 0 0 0 var(--white);
+  text-shadow: 0 0 0 white;
 }
 
 textarea {
@@ -343,7 +363,7 @@ ul {
 body {
   font: 18px/1.5 "Open Sans", sans-serif;
   background: var(--bodyColor);
-  color: var(--white);
+  color: white;
   margin: 1.5rem 0;
 }
 
@@ -353,162 +373,6 @@ body {
   padding: 0 1.5rem;
 }
 
-/* FORM ELEMENTS
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-.my-form h1 {
-  margin-bottom: 1.5rem;
-}
-
-.my-form li,
-.my-form .grid > *:not(:last-child) {
-  margin-bottom: 1.5rem;
-}
-
-.my-form select,
-.my-form input,
-.my-form textarea,
-.my-form button {
-  width: 100%;
-  line-height: 1.5;
-  padding: 15px 10px;
-  border: 1px solid var(--borderFormEls);
-  color: var(--white);
-  background: var(--bgFormEls);
-  transition: background-color 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25),
-    transform 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25);
-}
-
-.my-form textarea {
-  height: 170px;
-}
-
-.my-form ::placeholder {
-  color: inherit;
-  /*Fix opacity issue on Firefox*/
-  opacity: 1;
-}
-
-.my-form select:focus,
-.my-form input:focus,
-.my-form textarea:focus,
-.my-form button:enabled:hover,
-.my-form button:focus,
-.my-form input[type="checkbox"]:focus + label {
-  background: var(--bgFormElsFocus);
-}
-
-.my-form select:focus,
-.my-form input:focus,
-.my-form textarea:focus {
-  transform: scale(1.02);
-}
-
-.my-form *:required,
-.my-form select {
-  background-repeat: no-repeat;
-  background-position: center right 12px;
-  background-size: 15px 15px;
-}
-
-.my-form *:required {
-  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/asterisk.svg);
-}
-
-.my-form select {
-  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/down.svg);
-}
-
-.my-form *:disabled {
-  cursor: default;
-  filter: blur(2px);
-}
-
-/* FORM BTNS
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-.my-form .required-msg {
-  display: none;
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/asterisk.svg)
-    no-repeat center left / 15px 15px;
-  padding-left: 20px;
-}
-
-.my-form .btn-grid {
-  position: relative;
-  overflow: hidden;
-  transition: filter 0.2s;
-}
-
-.my-form button {
-  font-weight: bold;
-}
-
-.my-form button > * {
-  display: inline-block;
-  width: 100%;
-  transition: transform 0.4s ease-in-out;
-}
-
-.my-form button .back {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-110%, -50%);
-}
-
-.my-form button:enabled:hover .back,
-.my-form button:focus .back {
-  transform: translate(-50%, -50%);
-}
-
-.my-form button:enabled:hover .front,
-.my-form button:focus .front {
-  transform: translateX(110%);
-}
-
-/* CUSTOM CHECKBOX
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-.my-form input[type="checkbox"] {
-  position: absolute;
-  left: -9999px;
-}
-
-.my-form input[type="checkbox"] + label {
-  position: relative;
-  display: inline-block;
-  padding-left: 2rem;
-  transition: background 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25);
-}
-
-.my-form input[type="checkbox"] + label::before,
-.my-form input[type="checkbox"] + label::after {
-  content: "";
-  position: absolute;
-}
-
-.my-form input[type="checkbox"] + label::before {
-  left: 0;
-  top: 6px;
-  width: 18px;
-  height: 18px;
-  border: 2px solid var(--white);
-}
-
-.my-form input[type="checkbox"]:checked + label::before {
-  background: var(--red);
-}
-
-.my-form input[type="checkbox"]:checked + label::after {
-  left: 7px;
-  top: 7px;
-  width: 6px;
-  height: 14px;
-  border-bottom: 2px solid var(--white);
-  border-right: 2px solid var(--white);
-  transform: rotate(45deg);
-}
-
-/* MQ
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
 @media screen and (min-width: 600px) {
   .my-form .grid {
     display: grid;
@@ -559,6 +423,12 @@ body {
   justify-content: space-around;
   flex-flow: wrap;
 }
+.row1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-flow: wrap;
+}
 
 .card {
   width: 25%;
@@ -571,9 +441,9 @@ body {
 
 .card-header {
   text-align: center;
-  padding: 40px 10px;
-  background: linear-gradient(to right, #ff416c, #ff4b2b);
-  color: #fff;
+  padding: 10px 10px;
+  background: linear-gradient(to right, #fffb04, #fffb2b);
+  color: rgb(0, 0, 0);
 }
 
 .card-body {
@@ -581,12 +451,15 @@ body {
   text-align: center;
   font-size: 16px;
 }
+.card-body p {
+  color: black;
+}
 
 .card-body .btn {
   display: block;
   color: #fff;
   text-align: center;
-  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  background: linear-gradient(to right, #2c8ddb, #3a91d8);
   margin-top: 30px;
   text-decoration: none;
   padding: 10px 5px;
